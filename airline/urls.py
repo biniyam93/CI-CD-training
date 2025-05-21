@@ -13,18 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-# airline/urls.py
-
 from django.contrib import admin
 from django.urls import include, path
-from django.http import HttpResponse
-
-def home(request):
-    return HttpResponse("<h1>Welcome to the Airline Booking System</h1><p><a href='/flights/'>View Flights</a></p>")
 
 urlpatterns = [
-    path('', home),  # Root route shows welcome page
     path('admin/', admin.site.urls),
-    path('flights/', include('flights.urls')),
-    path('users/', include('users.urls')),
+    path("flights/", include("flights.urls")),
+    path("users/", include("users.urls"))
 ]
