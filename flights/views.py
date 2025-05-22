@@ -17,7 +17,7 @@ def flight(request, flight_id):
         flight = Flight.objects.get(id=flight_id)
     except Flight.DoesNotExist:
         raise Http404("Flight not found.")
-    return render(request, "flights/flight.html", {
+return render(request, "flights/flight.html", {
         "flight": flight,
         "passengers": flight.passengers.all(),
         "non_passengers": Passenger.objects.exclude(flights=flight).all()
